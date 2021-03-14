@@ -7,7 +7,7 @@
   overflow: hidden;
 
   &--hidden {
-    display: none;
+    visibility: hidden;
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -16,6 +16,16 @@
 
   @media (max-width: $tablet - 1) and (orientation: landscape) {
     height: 100vh;
+  }
+}
+
+.screen--intro {
+  &.active {
+    .intro__message {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.5s ease-in-out 1.1s, transform 0.7s ease-in-out 1.1s;
+    }
   }
 }
 
@@ -295,6 +305,21 @@
   background-size: cover;
   background-position: center;
 
+  &.active {
+    .slider__item-title {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .swiper-slide-active,
+    .swiper-slide-next {
+      .slider__item-text {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  }
+
   @media (orientation: portrait) {
     background-size: auto calc(100vh - 13.8rem), 100% 25rem;
     background-position: top center, bottom center;
@@ -332,6 +357,12 @@
 
     @media (max-width: $tablet) and (orientation: portrait) {
       opacity: 0;
+    }
+  }
+
+  &.active {
+    .form__field {
+      transform: translateX(0);
     }
   }
 }

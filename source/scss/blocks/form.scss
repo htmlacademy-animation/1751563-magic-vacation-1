@@ -29,12 +29,23 @@
   }
 }
 
+.form__field-wrapper {
+  width: calc(100% - 21rem);
+  margin-right: 3rem;
+  overflow: hidden;
+  border-radius: 3rem;
+
+  .form__field {
+    transform: translateX(100%);
+    transition: transform 0.7s ease-in-out;
+  }
+}
+
 .form__field {
   flex: none;
-  margin-right: 3rem;
-  padding: 0 5.6rem;
+  width: 100%;
   height: 6rem;
-  width: calc(100% - 21rem);
+  padding: 0 5.6rem;
   text-transform: uppercase;
   font: inherit;
   font-size: 2.4rem;
