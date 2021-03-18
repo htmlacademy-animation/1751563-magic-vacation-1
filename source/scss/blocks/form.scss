@@ -60,10 +60,8 @@
   }
 
   @media (min-width: $stop-scaling) {
-    margin-right: 30px;
     padding: 0 56px;
     height: 60px;
-    width: calc(100% - 210px);
     font-size: 24px;
     border-radius: 30px;
   }
