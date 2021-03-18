@@ -3,8 +3,24 @@
 
   &:hover {
     .social-block__list {
-      opacity: 1;
       pointer-events: auto;
+    }
+
+    .social-block__link {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .social-block__link--fb {
+      transition-delay: 0s;
+    }
+
+    .social-block__link--insta {
+      transition-delay: 0.2s;
+    }
+
+    .social-block__link--vk {
+      transition-delay: 0.4s;
     }
   }
 }
@@ -17,6 +33,7 @@
   height: 4rem;
   color: $c-dark;
   border-radius: 50%;
+  transition: color 0.35s ease-in-out;
 
   @media (max-width: $tablet) and (orientation: portrait) {
     display: none;
@@ -35,6 +52,7 @@
     background-color: $c-light;
     border: 2px solid $c-light;
     z-index: -1;
+    transition: transform 0.35s ease-in-out;
   }
 
   svg {
@@ -49,8 +67,7 @@
     color: $c-purple;
 
     &::before {
-      width: 112.5%;
-      height: 112.5%;
+      transform: translate(-50%, -50%) scale(1.125);
     }
   }
 
@@ -87,7 +104,6 @@
   top: 100%;
   right: 0;
   margin-top: 1.5rem;
-  opacity: 0;
   pointer-events: none;
 
   @media (min-width: $stop-scaling) {
@@ -168,6 +184,9 @@
   color: $c-light;
   border: 2px solid transparent;
   border-radius: 50%;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease-in-out, transform .35s ease-in-out;
 
   @media (min-width: $stop-scaling) {
     width: 40px;

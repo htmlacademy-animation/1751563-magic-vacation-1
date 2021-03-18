@@ -73,6 +73,9 @@
   font-size: 4.8rem;
   line-height: 0.906;
   letter-spacing: -0.04em;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.35s ease-in-out, transform 0.35s ease-in-out;
 
   @media (min-width: $stop-scaling) {
     margin-left: -55px;
@@ -96,6 +99,8 @@
   max-width: 34rem;
   font-size: 1.8rem;
   line-height: 2rem;
+  opacity: 0;
+  transform: translateX(20px);
 
   @media (min-width: $stop-scaling) {
     margin-top: 36px;
@@ -122,6 +127,18 @@
     min-height: 14rem;
     font-size: 1.4rem;
     line-height: 1.5rem;
+  }
+}
+
+.swiper-slide-active {
+  .slider__item-text {
+    transition: opacity 0.35s ease-in-out 0.35s, transform 0.35s ease-in-out 0.35s;
+  }
+}
+
+.swiper-slide-next {
+  .slider__item-text {
+    transition: opacity 0.35s ease-in-out 0.7s, transform 0.35s ease-in-out 0.7s;
   }
 }
 
