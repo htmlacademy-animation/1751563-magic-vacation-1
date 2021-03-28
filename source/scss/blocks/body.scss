@@ -31,8 +31,7 @@
     opacity: 1;
 
     &::before {
-      transform: translate(-50%, -50%) scale(1);
-      transition: transform 0.3s 0.5s cubic-bezier(0.5, 2, 1, 1);
+      transform: scale(1);
     }
   }
 }
