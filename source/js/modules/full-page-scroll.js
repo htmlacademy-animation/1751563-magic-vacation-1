@@ -10,11 +10,13 @@ export default class FullPageScroll {
     this.activeScreen = 0;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
+    this.onLoadHandler = this.loadResource.bind(this);
   }
 
   init() {
     document.addEventListener(`wheel`, throttle(this.onScrollHandler, this.THROTTLE_TIMEOUT, {trailing: true}));
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
+    window.addEventListener(`load`, this.onLoadHandler);
 
     this.onUrlHashChanged();
   }
@@ -76,5 +78,9 @@ export default class FullPageScroll {
     } else {
       this.activeScreen = Math.max(0, --this.activeScreen);
     }
+  }
+
+  loadResource() {
+    document.body.classList.add(`body--loaded`);
   }
 }

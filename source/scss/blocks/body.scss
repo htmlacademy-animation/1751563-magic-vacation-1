@@ -1,0 +1,37 @@
+// Styles for Body
+
+.body--loaded {
+  .page-header {
+    opacity: 1;
+  }
+
+  .page-header__menu {
+    opacity: 1;
+  }
+
+  .screen__footer {
+    transform: translateY(0);
+  }
+
+  .page-header__logo {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .page-header__menu-link {
+    &.active {
+      &::after {
+        width: 100%;
+        left: 0;
+      }
+    }
+  }
+
+  .social-block__toggler {
+    opacity: 1;
+
+    &::before {
+      transform: scale(1);
+    }
+  }
+}
