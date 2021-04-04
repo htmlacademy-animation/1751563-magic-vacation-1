@@ -1,13 +1,29 @@
-.screen {
+.page-content {
   position: relative;
+}
+
+.screen {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   z-index: 1;
   overflow: hidden;
+  transition: visibility 0s 0s;
 
   &--hidden {
     visibility: hidden;
+    transition: visibility 0s 1s;
+  }
+
+  &.active {
+    .screen__footer {
+      transform: translateY(0);
+    }
   }
 
   @media (max-width: $tablet) and (orientation: portrait) {
@@ -329,7 +345,30 @@
 }
 
 .screen--prizes {
-  background-color: $c-dark;
+  &.active {
+    &::after {
+      transform: translateY(0);
+    }
+
+    & .screen__wrapper {
+      opacity: 1;
+      transition: opacity 0.3s 0.2s;
+    }
+  }
+
+  &::after {
+    position: absolute;
+    inset: 0;
+    background-color: $c-dark;
+    transform: translateY(100%);
+    transition: 0.4s cubic-bezier(0.38, 0.75, 0.55, 1);
+    content: "";
+  }
+
+  & .screen__wrapper {
+    opacity: 0;
+    transition: opacity 0.3s 0s;
+  }
 }
 
 .screen--game {
