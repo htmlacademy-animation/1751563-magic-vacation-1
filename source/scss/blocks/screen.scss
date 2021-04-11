@@ -13,11 +13,11 @@
   min-height: 100vh;
   z-index: 1;
   overflow: hidden;
+  background-color: $c-dark;
   transition: visibility 0s 0s;
 
   &--hidden {
     visibility: hidden;
-    transition: visibility 0s 1s;
   }
 
   &.active {
@@ -345,29 +345,32 @@
 }
 
 .screen--prizes {
-  &.active {
+  &.animation {
+    background-color: transparent;
+
     &::after {
-      transform: translateY(0);
+      position: absolute;
+      inset: 0;
+      background-color: $c-dark;
+      transform: translateY(100%);
+      transition: 0.4s cubic-bezier(0.38, 0.75, 0.55, 1);
+      content: "";
+    }
+
+    &.active {
+      &::after {
+        transform: translateY(0);
+      }
+
+      & .screen__wrapper {
+        opacity: 1;
+        transition: opacity 0.3s 0.2s;
+      }
     }
 
     & .screen__wrapper {
-      opacity: 1;
-      transition: opacity 0.3s 0.2s;
+      opacity: 0;
     }
-  }
-
-  &::after {
-    position: absolute;
-    inset: 0;
-    background-color: $c-dark;
-    transform: translateY(100%);
-    transition: 0.4s cubic-bezier(0.38, 0.75, 0.55, 1);
-    content: "";
-  }
-
-  & .screen__wrapper {
-    opacity: 0;
-    transition: opacity 0.3s 0s;
   }
 }
 
