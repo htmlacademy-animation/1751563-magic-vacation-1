@@ -50,9 +50,11 @@ export default class FullPageScroll {
     });
     this.screenElements[this.activeScreen].classList.remove(`screen--hidden`);
     if (this.activeScreen === 2 && this.oldActiveScreen === 1) {
-      this.screenElements[this.activeScreen].classList.add(`animation`);
+      this.screenElements[this.activeScreen].classList.add(`to-animation`);
+      this.screenElements[this.oldActiveScreen].classList.add(`from-animation`);
     } else {
-      this.screenElements[2].classList.remove(`animation`);
+      this.screenElements[2].classList.remove(`to-animation`);
+      this.screenElements[1].classList.remove(`from-animation`);
     }
     setTimeout(() => {
       this.screenElements[this.activeScreen].classList.add(`active`);

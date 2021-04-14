@@ -323,6 +323,10 @@
   background-size: cover;
   background-position: center;
 
+  &.from-animation {
+    transition: visibility 0s 0.5s;
+  }
+
   &.active {
     .slider__item-title {
       opacity: 1;
@@ -345,12 +349,15 @@
 }
 
 .screen--prizes {
-  &.animation {
+  &.to-animation {
     background-color: transparent;
 
     &::after {
       position: absolute;
-      inset: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
       background-color: $c-dark;
       transform: translateY(100%);
       transition: 0.4s cubic-bezier(0.38, 0.75, 0.55, 1);
