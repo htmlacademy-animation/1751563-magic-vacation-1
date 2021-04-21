@@ -170,13 +170,11 @@
     opacity: 0;
 
     @media (max-width: $tablet) and (orientation: portrait) {
-      top: 1rem;
       line-height: 3rem;
       font-size: 1.4rem;
     }
 
     @media (max-width: $mobile) and (orientation: landscape) {
-      top: 0.6rem;
       line-height: 3rem;
       font-size: 1.4rem;
     }
