@@ -208,10 +208,11 @@
 
   &.btn {
     &::before {
+      left: 100%;
       width: 60px;
       opacity: 0;
-      transform: translate(-50%, -50%);
       will-change: width;
+      transform: translate(-100%, -50%);
     }
 
     & .btn__text {
