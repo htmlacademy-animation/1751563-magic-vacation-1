@@ -208,9 +208,10 @@
 
   &.btn {
     &::before {
-      visibility: visible;
+      width: 60px;
       opacity: 0;
-      transform: translate(-50%, -50%) scaleX(0.5);
+      transform: translate(-50%, -50%);
+      will-change: width;
     }
 
     & .btn__text {
