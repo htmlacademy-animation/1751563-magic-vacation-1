@@ -1,0 +1,17 @@
+
+.word {
+  display: inline-flex;
+  overflow: hidden;
+}
+
+.letter {
+  transform: translate3d(0, 3em, 0);
+}
+
+.screen {
+  &.active {
+    .letter {
+      transform: translate3d(0, 0, 0);
+    }
+  }
+}
