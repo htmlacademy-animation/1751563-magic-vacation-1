@@ -29,67 +29,7 @@
   }
 }
 
-.form__field-wrapper {
-  width: calc(100% - 21rem);
-  margin-right: 3rem;
-  overflow: hidden;
-  border-radius: 3rem;
-
-  .form__field {
-    transform: translateX(100%);
-    transition: transform 0.7s ease-in-out;
-  }
-}
-
-.form__field {
-  flex: none;
-  width: 100%;
-  height: 6rem;
-  padding: 0 5.6rem;
-  text-transform: uppercase;
-  font: inherit;
-  font-size: 2.4rem;
-  line-height: 1.2;
-  color: $c-dark;
-  border: 0;
-  border-radius: 3rem;
-  outline: none;
-
-  &:focus {
-    border: 1px solid $c-purple;
-  }
-
-  @media (min-width: $stop-scaling) {
-    padding: 0 56px;
-    height: 60px;
-    font-size: 24px;
-    border-radius: 30px;
-  }
-
-  @media (orientation: portrait) {
-    margin-right: 1rem;
-    padding: 0 2.5rem;
-    width: calc(100% - 5rem);
-    height: 4rem;
-    font-size: 1.6rem;
-  }
-
-  @media (max-width: $tablet) and (orientation: landscape) {
-    width: calc(100% - 9rem);
-  }
-
-  @media (max-width: $mobile) and (orientation: landscape) {
-    margin-right: 1rem;
-    padding: 0 2.5rem;
-    width: calc(100% - 5rem);
-    height: 4rem;
-    font-size: 1.6rem;
-  }
-}
-
 .form__button {
-  flex-grow: 1;
-
   @media (orientation: portrait) {
     position: relative;
     flex: none;
@@ -134,24 +74,63 @@
   }
 }
 
-.form--result {
-  .form__field {
-    width: calc(100% - 31rem);
+.screen--game.active,
+.screen--result.screen--active {
+  .form__input {
+    transform: translateX(0);
+  }
+}
 
-    @media (min-width: $stop-scaling) {
-      width: calc(100% - 310px);
-    }
+.form__input-wrapper {
+  flex-grow: 1;
+  margin-right: 3rem;
+  overflow: hidden;
+  border-radius: 3rem;
 
-    @media (orientation: portrait) {
-      width: calc(100% - 5rem);
-    }
+  @media (orientation: portrait) {
+    margin-right: 1rem;
+  }
+}
 
-    @media (max-width: $tablet) and (orientation: landscape) {
-      width: calc(100% - 9rem);
-    }
+.form__input {
+  width: 100%;
+  height: 6rem;
+  padding: 0 5.6rem;
+  text-transform: uppercase;
+  font: inherit;
+  font-size: 2.4rem;
+  line-height: 1.2;
+  color: $c-dark;
+  border: 0;
+  border-radius: 3rem;
+  outline: none;
+  transform: translateX(calc(100% - 6rem));
+  transition: transform 0.7s ease-in-out;
 
-    @media (max-width: $mobile) and (orientation: landscape) {
-      width: calc(100% - 5rem);
-    }
+  &:focus {
+    border: 1px solid $c-purple;
+  }
+
+  @media (min-width: $stop-scaling) {
+    padding: 0 56px;
+    height: 60px;
+    font-size: 24px;
+    border-radius: 30px;
+    transform: translateX(calc(100% - 60px));
+  }
+
+  @media (orientation: portrait) {
+    padding: 0 2.5rem;
+    height: 4rem;
+    font-size: 1.6rem;
+    transform: translateX(calc(100% - 4rem));
+  }
+
+  @media (max-width: $mobile) and (orientation: landscape) {
+    margin-right: 1rem;
+    padding: 0 2.5rem;
+    height: 4rem;
+    font-size: 1.6rem;
+    transform: translateX(calc(100% - 4rem));
   }
 }
