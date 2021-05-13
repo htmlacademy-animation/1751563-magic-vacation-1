@@ -410,18 +410,6 @@
       opacity: 0;
     }
   }
-
-  & .form__field-wrapper {
-    & .form__field {
-      transform: translateX(calc(100% - 60px));
-    }
-  }
-
-  &.active {
-    .form__field {
-      transform: translateX(0);
-    }
-  }
 }
 
 .screen--result {
@@ -433,7 +421,7 @@
   opacity: 0;
   pointer-events: none;
 
-  &.screen--show {
+  &.screen--active {
     opacity: 1;
     pointer-events: auto;
   }

@@ -6,13 +6,13 @@ export default () => {
       showResultEls[i].addEventListener(`click`, function () {
         let target = showResultEls[i].getAttribute(`data-target`);
         [].slice.call(results).forEach(function (el) {
-          el.classList.remove(`screen--show`);
+          el.classList.remove(`screen--active`);
           el.classList.add(`screen--hidden`);
         });
         let targetEl = [].slice.call(results).filter(function (el) {
           return el.getAttribute(`id`) === target;
         });
-        targetEl[0].classList.add(`screen--show`);
+        targetEl[0].classList.add(`screen--active`);
         targetEl[0].classList.remove(`screen--hidden`);
       });
     }
@@ -21,7 +21,7 @@ export default () => {
     if (playBtn) {
       playBtn.addEventListener(`click`, function () {
         [].slice.call(results).forEach(function (el) {
-          el.classList.remove(`screen--show`);
+          el.classList.remove(`screen--active`);
           el.classList.add(`screen--hidden`);
         });
         document.getElementById(`messages`).innerHTML = ``;
