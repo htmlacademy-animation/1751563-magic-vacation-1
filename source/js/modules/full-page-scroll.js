@@ -1,5 +1,5 @@
 import throttle from 'lodash/throttle';
-import letterByLetterAnimation from './letter-by-letter-animation';
+import startLetterAnimation from './letter-by-letter-animation';
 
 export default class FullPageScroll {
   constructor() {
@@ -53,10 +53,12 @@ export default class FullPageScroll {
     const activeScreen = this.screenElements[this.activeScreen];
     activeScreen.classList.remove(`screen--hidden`);
 
-    const lettersAnimationElements = activeScreen.querySelectorAll(`.js-letter-by-letter-animation`);
+    if (!activeScreen.classList.contains(`animation-letter-done`)) {
+      const lettersAnimationElements = activeScreen.querySelectorAll(`.js-letter-by-letter-animation`);
 
-    for (let i = 0; i < lettersAnimationElements.length; i++) {
-      lettersAnimationElements[i].innerHTML = letterByLetterAnimation(lettersAnimationElements[i]);
+      for (let i = 0; i < lettersAnimationElements.length; i++) {
+        lettersAnimationElements[i].innerHTML = startLetterAnimation(lettersAnimationElements[i], activeScreen);
+      }
     }
 
     if (this.activeScreen === 2 && this.oldActiveScreen === 1) {

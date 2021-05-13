@@ -411,6 +411,12 @@
     }
   }
 
+  & .form__field-wrapper {
+    & .form__field {
+      transform: translateX(calc(100% - 60px));
+    }
+  }
+
   &.active {
     .form__field {
       transform: translateX(0);

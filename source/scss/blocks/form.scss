@@ -135,8 +135,6 @@
 
 .form--result {
   .form__field {
-    transform: translateX(0);
-
     @media (orientation: portrait) {
       width: calc(100% - 5rem);
     }
@@ -147,6 +145,22 @@
 
     @media (max-width: $mobile) and (orientation: landscape) {
       width: calc(100% - 5rem);
+    }
+  }
+}
+
+.screen--result {
+  &.screen--show {
+    .form__field-wrapper {
+      .form__field {
+        transform: translateX(0);
+      }
+    }
+  }
+
+  .form__field-wrapper {
+    .form__field {
+      transform: translateX(calc(100% - 60px));
     }
   }
 }

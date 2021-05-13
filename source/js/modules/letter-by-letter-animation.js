@@ -1,5 +1,5 @@
 /**
- * Script for start letter-by-letter animation
+ * Script для разделения фразы на части для дальнейшего их анимирования.
  *
  * args:
  * animationTextElement - элемент, внутри которого нужно анимировать появление текста
@@ -7,10 +7,11 @@
  * delay - задержка начала выполнения анимация
  */
 
-export default (animationTextElement) => {
+export default (animationTextElement, activeScreen) => {
   let animationElement = animationTextElement;
   let animationDelay = animationElement.dataset.animationDelay;
   let animationDuration = animationElement.dataset.animationDuration;
+  activeScreen.classList.add(`animation-letter-done`);
 
   let newElement = ``;
   const wordsArray = animationElement.textContent.trim().split(` `);
