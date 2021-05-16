@@ -1,42 +1,34 @@
 .page-content {
   position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  height: 100%;
 }
 
 .screen {
   position: absolute;
   top: 0;
   right: 0;
-  width: 100%;
-  height: 100%;
+  bottom: 0;
+  left: 0;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
-  z-index: 1;
   overflow: hidden;
+  visibility: hidden;
   background-color: $c-dark;
-  transition: visibility 0s 0s;
+  transition: visibility 0s;
 
-  &--hidden {
-    visibility: hidden;
-  }
+  &--active {
+    visibility: visible;
 
-  &.active {
     .screen__footer {
       transform: translateY(0);
     }
   }
-
-  @media (max-width: $tablet) and (orientation: portrait) {
-    min-height: calc(var(--vh, 1vh) * 100);
-  }
-
-  @media (max-width: $tablet - 1) and (orientation: landscape) {
-    height: 100vh;
-  }
 }
 
 .screen--intro {
-  &.active {
+  &.screen--active {
     .intro__message {
       opacity: 1;
       transform: translateY(0);
@@ -317,17 +309,14 @@
 }
 
 .screen--story {
+  z-index: 2;
   background-color: $c-dark;
   background-image: url("../img/slide1.jpg"), url("../img/slide2.jpg"), url("../img/slide3.jpg"), url("../img/slide4.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
 
-  &.from-animation {
-    transition: visibility 0s 0.5s;
-  }
-
-  &.active {
+  &.screen--active {
     .slider__item-title {
       opacity: 1;
       transform: translateY(0);
@@ -349,40 +338,51 @@
 }
 
 .screen--prizes {
-  &.to-animation {
-    background-color: transparent;
+  z-index: 3;
 
-    &::after {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-      background-color: $c-dark;
-      transform: translateY(100%);
-      transition: 0.4s cubic-bezier(0.38, 0.75, 0.55, 1);
-      content: "";
-    }
-
-    &.active {
-      &::after {
-        transform: translateY(0);
-      }
-
-      & .screen__wrapper {
-        opacity: 1;
-        transition: opacity 0.3s 0.2s;
-      }
-    }
-
+  &.screen--active {
     & .screen__wrapper {
-      opacity: 0;
+      opacity: 1;
     }
+  }
+
+  &::after {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $c-dark;
+    transform: translateY(100%);
+    content: "";
+  }
+
+  & .screen__wrapper {
+    opacity: 0;
   }
 }
 
+.screen--story-to-prizes {
+  background-color: transparent;
+
+
+  &::after {
+    transform: translateY(0);
+    transition: 0.4s cubic-bezier(0.38, 0.75, 0.55, 1);
+  }
+
+  & .screen__wrapper {
+    opacity: 1;
+    transition: opacity 0.3s 0.2s;
+  }
+
+  & + .screen--story {
+    transition: visibility 0s 0.5s;
+  }
+}
+
+
 .screen--game {
-  position: relative;
   background-color: $c-dark;
 
   &::before {
@@ -430,7 +430,7 @@
 .screen--rules {
   background-color: $c-dark;
 
-  &.active {
+  &.screen--active {
     & .rules__mark {
       transform: scale(1);
       transition: transform 0.3s cubic-bezier(0.4, 0.54, 0.8, 1.6);

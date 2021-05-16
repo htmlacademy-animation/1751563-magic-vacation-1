@@ -5,20 +5,35 @@ export default class FullPageScroll {
   constructor() {
     this.THROTTLE_TIMEOUT = 2000;
 
-    this.screenElements = document.querySelectorAll(`.screen:not(.screen--result)`);
+    this.screenElements = document.querySelectorAll(`.js-screen-page`);
+
+    this.temporaryScreenElements = [];
+
+    for (let i = this.screenElements.length - 1; i >= 0; i--) {
+      this.temporaryScreenElements.push(this.screenElements[i]);
+    }
+
+    this.screenElements = this.temporaryScreenElements;
+
     this.menuElements = document.querySelectorAll(`.page-header__menu .js-menu-link`);
 
-    this.activeScreen = 0;
+    this.activeScreen = -1;
     this.oldActiveScreen = -1;
     this.onScrollHandler = this.onScroll.bind(this);
     this.onUrlHashChengedHandler = this.onUrlHashChanged.bind(this);
     this.onLoadHandler = this.loadResource.bind(this);
+    this.arrayScreenTitle = [];
+    this.activeClassAccent = null;
   }
 
   init() {
     document.addEventListener(`wheel`, throttle(this.onScrollHandler, this.THROTTLE_TIMEOUT, {trailing: true}));
     window.addEventListener(`popstate`, this.onUrlHashChengedHandler);
     window.addEventListener(`load`, this.onLoadHandler);
+
+    this.screenElements.forEach((currentScreen) => {
+      this.arrayScreenTitle.push(currentScreen.dataset.page);
+    });
 
     this.onUrlHashChanged();
   }
@@ -45,13 +60,24 @@ export default class FullPageScroll {
   }
 
   changeVisibilityDisplay() {
-    this.screenElements.forEach((screen) => {
-      screen.classList.add(`screen--hidden`);
-      screen.classList.remove(`active`);
-    });
+    const arrayScreenTitle = this.arrayScreenTitle;
 
-    const activeScreen = this.screenElements[this.activeScreen];
-    activeScreen.classList.remove(`screen--hidden`);
+    const indexActiveScreen = this.activeScreen;
+    const indexOldActiveScreen = this.oldActiveScreen;
+
+    const activeScreen = this.screenElements[indexActiveScreen];
+    const oldActiveScreen = this.screenElements[indexOldActiveScreen] || null;
+
+    if (indexActiveScreen !== indexOldActiveScreen && indexOldActiveScreen !== -1) {
+      oldActiveScreen.classList.remove(`screen--active`);
+      oldActiveScreen.classList.remove(this.activeClassAccent);
+    }
+
+    this.activeClassAccent = `screen--${arrayScreenTitle[indexOldActiveScreen]}-to-${arrayScreenTitle[indexActiveScreen]}`;
+    activeScreen.classList.add(`screen--active`);
+    if (indexOldActiveScreen !== -1) {
+      activeScreen.classList.add(this.activeClassAccent);
+    }
 
     if (!activeScreen.classList.contains(`animation-letter-done`)) {
       const lettersAnimationElements = activeScreen.querySelectorAll(`.js-letter-by-letter-animation`);
@@ -60,17 +86,6 @@ export default class FullPageScroll {
         lettersAnimationElements[i].innerHTML = startLetterAnimation(lettersAnimationElements[i], activeScreen);
       }
     }
-
-    if (this.activeScreen === 2 && this.oldActiveScreen === 1) {
-      activeScreen.classList.add(`to-animation`);
-      this.screenElements[this.oldActiveScreen].classList.add(`from-animation`);
-    } else {
-      this.screenElements[2].classList.remove(`to-animation`);
-      this.screenElements[1].classList.remove(`from-animation`);
-    }
-    setTimeout(() => {
-      activeScreen.classList.add(`active`);
-    }, 100);
   }
 
   changeActiveMenuItem() {

@@ -167,26 +167,18 @@
 }
 
 .slider__control {
-  @include btn-reset;
   position: relative;
   width: 4rem;
   height: 4rem;
   color: $c-dark;
+  border-radius: 50%;
+  cursor: pointer;
+  background: #ffffff;
+  border: 2px solid #ffffff;
 
   @media (min-width: $stop-scaling) {
     width: 40px;
     height: 40px;
-  }
-
-  &::before {
-    @include center;
-    content: "";
-    width: 100%;
-    height: 100%;
-    background-color: $c-light;
-    border: 2px solid $c-light;
-    border-radius: 50%;
-    z-index: -1;
   }
 
   svg {
@@ -204,32 +196,19 @@
 
   &:hover {
     color: $c-purple;
-
-    &::before {
-      width: 112.5%;
-      height: 112.5%;
-    }
   }
 
   &:focus {
     color: $c-purple;
     outline: none;
-
-    &::before {
-      border-color: $c-purple;
-    }
+    border-color: $c-purple;
   }
 
   &:active,
   &:active:focus {
     color: $c-light;
-
-    &::before {
-      width: 100%;
-      height: 100%;
-      background-color: $c-purple;
-      border-color: $c-purple;
-    }
+    border-color: $c-purple;
+    background-color: $c-purple;
   }
 
   &.swiper-button-disabled {
