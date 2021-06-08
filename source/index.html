@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mysterious Vacation</title>
 </head>
-<body>
+<body class="js-body">
 
   <header class="page-header js-header">
     <div class="page-header__wrapper">
@@ -158,18 +158,6 @@
           </a>
         </div>
       </div>
-      <div class="screen__disclaimer">
-        <div class="disclaimer">
-          <ul>
-            <li>
-              <a href="#">Правовая информация</a>
-            </li>
-            <li>
-              <a href="#">Подробные правила</a>
-            </li>
-          </ul>
-        </div>
-      </div>
     </section>
 
     <section class="screen screen--prizes js-scrollspy js-screen-page" data-page="prizes" id="prizes">
@@ -227,33 +215,6 @@
               </p>
             </li>
           </ul>
-        </div>
-      </div>
-      <div class="screen__footer js-footer">
-        <button class="screen__footer-enlarge js-footer-toggler" type="button" aria-label="Показать сообщение">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
-          </svg>
-        </button>
-        <button class="screen__footer-collapse js-footer-toggler" type="button" aria-label="Скрыть сообщение">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="12.3536" y1="0.353553" x2="0.738349" y2="11.9688" stroke="currentColor"/>
-            <line x1="0.738319" y1="0.539925" x2="12.3535" y2="12.1551" stroke="currentColor"/>
-          </svg>
-        </button>
-        <div class="screen__footer-wrapper">
-          <div class="screen__footer-announce">
-            <p class="screen__footer-label">Даты проведения конкурса:</p>
-            <p class="screen__footer-date">01 — 31.05 / 2020</p>
-          </div>
-          <div class="screen__footer-note">
-            <p>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
-              </svg>
-              <span>Скидка&nbsp;15% на&nbsp;единоразовое приобретение путёвки с&nbsp;1&nbsp;июня 2020 по&nbsp;31&nbsp;мая 2022&nbsp;года. Суммируется с&nbsp;другими акциями</span>
-            </p>
-          </div>
         </div>
       </div>
     </section>
@@ -351,7 +312,10 @@
           </div>
         </div>
       </div>
-      <div class="screen__footer js-footer">
+    </section>
+
+    <div class="screen__footer js-footer">
+      <div class="screen__footer--intro">
         <button class="screen__footer-enlarge js-footer-toggler" type="button" aria-label="Показать сообщение">
           <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
@@ -378,7 +342,49 @@
           </div>
         </div>
       </div>
-    </section>
+
+      <div class="screen__footer--second">
+        <div class="screen__footer--prizes">
+          <button class="screen__footer-enlarge js-footer-toggler" type="button" aria-label="Показать сообщение">
+            <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
+            </svg>
+          </button>
+          <button class="screen__footer-collapse js-footer-toggler" type="button" aria-label="Скрыть сообщение">
+            <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <line x1="12.3536" y1="0.353553" x2="0.738349" y2="11.9688" stroke="currentColor"/>
+              <line x1="0.738319" y1="0.539925" x2="12.3535" y2="12.1551" stroke="currentColor"/>
+            </svg>
+          </button>
+          <div class="screen__footer-wrapper">
+            <div class="screen__footer-announce">
+              <p class="screen__footer-label">Даты проведения конкурса:</p>
+              <p class="screen__footer-date">01 — 31.05 / 2020</p>
+            </div>
+            <div class="screen__footer-note">
+              <p>
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
+                </svg>
+                <span>Скидка&nbsp;15% на&nbsp;единоразовое приобретение путёвки с&nbsp;1&nbsp;июня 2020 по&nbsp;31&nbsp;мая 2022&nbsp;года. Суммируется с&nbsp;другими акциями</span>
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="screen__footer--rules">
+        <div class="disclaimer">
+          <ul>
+            <li>
+              <a href="#">Правовая информация</a>
+            </li>
+            <li>
+              <a href="#">Подробные правила</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      </div>
+    </div>
 
     <section class="screen screen--result" id="result">
       <div class="screen__wrapper">

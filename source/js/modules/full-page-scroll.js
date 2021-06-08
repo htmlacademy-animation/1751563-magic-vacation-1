@@ -69,12 +69,16 @@ export default class FullPageScroll {
     const oldActiveScreen = this.screenElements[indexOldActiveScreen] || null;
 
     if (indexActiveScreen !== indexOldActiveScreen && indexOldActiveScreen !== -1) {
-      oldActiveScreen.classList.remove(`screen--active`);
+      setTimeout(() => {
+        oldActiveScreen.classList.remove(`screen--active`);
+      }, 100);
       oldActiveScreen.classList.remove(this.activeClassAccent);
     }
 
     this.activeClassAccent = `screen--${arrayScreenTitle[indexOldActiveScreen]}-to-${arrayScreenTitle[indexActiveScreen]}`;
-    activeScreen.classList.add(`screen--active`);
+    setTimeout(() => {
+      activeScreen.classList.add(`screen--active`);
+    }, 100);
     if (indexOldActiveScreen !== -1) {
       activeScreen.classList.add(this.activeClassAccent);
     }

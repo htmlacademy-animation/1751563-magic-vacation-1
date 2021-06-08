@@ -170,11 +170,26 @@
   position: relative;
   width: 4rem;
   height: 4rem;
+  padding: 0;
   color: $c-dark;
+  border: 2px solid #ffffff;
   border-radius: 50%;
   cursor: pointer;
-  background: #ffffff;
-  border: 2px solid #ffffff;
+  opacity: 0;
+  transition: transform 0.4s, opacity 0.16s;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    background: #ffffff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+  }
 
   @media (min-width: $stop-scaling) {
     width: 40px;
@@ -196,6 +211,10 @@
 
   &:hover {
     color: $c-purple;
+
+    &::before {
+      transform: scale(1.125) translate3d(0, 0, 0);
+    }
   }
 
   &:focus {
@@ -212,9 +231,16 @@
   }
 
   &.swiper-button-disabled {
-    opacity: 0.5;
     pointer-events: none;
   }
+}
+
+.slider__control--next {
+  transform: translateX(46px) rotate(135deg);
+}
+
+.slider__control--prev {
+  transform: translateX(-46px) rotate(-135deg);
 }
 
 .slider__pagination.swiper-pagination {
