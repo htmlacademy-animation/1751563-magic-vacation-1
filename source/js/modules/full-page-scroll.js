@@ -68,6 +68,12 @@ export default class FullPageScroll {
     const activeScreen = this.screenElements[indexActiveScreen];
     const oldActiveScreen = this.screenElements[indexOldActiveScreen] || null;
 
+    if(indexActiveScreen === 1) {
+      document.body.classList.add(`screen_story-active`);
+    } else {
+      document.body.classList.remove(`screen_story-active`);
+    }
+
     if (indexActiveScreen !== indexOldActiveScreen && indexOldActiveScreen !== -1) {
       setTimeout(() => {
         oldActiveScreen.classList.remove(`screen--active`);

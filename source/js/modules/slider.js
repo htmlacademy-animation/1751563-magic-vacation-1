@@ -54,20 +54,16 @@ export default () => {
           slideChange: () => {
             if (storySlider.activeIndex === 0) {
               sliderContainer.style.backgroundImage = `url("img/slide1.jpg")`;
-              body.classList.add(`story-slide_first`);
-              body.classList.remove(`story-slide_second`);
+              body.setAttribute(`data-story-ui`, `1`);
             } else if (storySlider.activeIndex === 2) {
               sliderContainer.style.backgroundImage = `url("img/slide2.jpg")`;
-              body.classList.add(`story-slide_second`);
-              body.classList.remove(`story-slide_first`, `story-slide_third`);
+              body.setAttribute(`data-story-ui`, `2`);
             } else if (storySlider.activeIndex === 4) {
               sliderContainer.style.backgroundImage = `url("img/slide3.jpg")`;
-              body.classList.add(`story-slide_third`);
-              body.classList.remove(`story-slide_second`, `story-slide_last`);
+              body.setAttribute(`data-story-ui`, `3`);
             } else if (storySlider.activeIndex === 6) {
               sliderContainer.style.backgroundImage = `url("img/slide4.jpg")`;
-              body.classList.add(`story-slide_last`);
-              body.classList.remove(`story-slide_third`);
+              body.setAttribute(`data-story-ui`, `4`);
             }
           },
           resize: () => {

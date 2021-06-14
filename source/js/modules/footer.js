@@ -4,11 +4,11 @@ export default () => {
   if (footerTogglers.length) {
     for (let i = 0; i < footerTogglers.length; i++) {
       footerTogglers[i].addEventListener(`click`, function () {
-        let footer = footerTogglers[i].parentNode;
-        if (footer.classList.contains(`screen__footer--full`)) {
-          footer.classList.remove(`screen__footer--full`);
+        let footer = footerTogglers[i].closest(`.footer__inner`);
+        if (footer.classList.contains(`footer--full`)) {
+          footer.classList.remove(`footer--full`);
         } else {
-          footer.classList.add(`screen__footer--full`);
+          footer.classList.add(`footer--full`);
         }
       });
     }
