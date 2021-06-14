@@ -170,6 +170,16 @@
   &.screen--active {
     opacity: 1;
     pointer-events: auto;
+
+    & .result--negative {
+      & .result__button-text {
+        opacity: 1;
+      }
+
+      & .result__button-spinner {
+        transform: translate3d(0, 0, 0) rotate(0);
+      }
+    }
   }
 }
 

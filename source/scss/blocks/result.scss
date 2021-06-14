@@ -389,46 +389,15 @@
     font-size: 1.6rem;
   }
 
-  span {
-    position: relative;
-    margin-left: 1.5rem;
-    width: 4rem;
-    height: 4rem;
-    color: $c-dark;
-
-    @media (min-width: $stop-scaling) {
-      margin-left: 15px;
-      width: 40px;
-      height: 40px;
-    }
-
-    &::before {
-      @include center;
-      content: "";
-      width: 100%;
-      height: 100%;
-      background-color: $c-light;
-      border: 2px solid $c-light;
-      border-radius: 50%;
-      z-index: -1;
-    }
-  }
-
   svg {
     @include center;
-    margin-left: 0.3rem;
-    width: 2.4rem;
-    height: 1.9rem;
-
-    @media (min-width: $stop-scaling) {
-      margin-left: 3px;
-      width: 24px;
-      height: 19px;
-    }
+    margin-left: 2px;
+    width: 22px;
+    height: 22px;
   }
 
   &:hover {
-    span::before {
+    .result__button-spinner::before {
       width: 112.5%;
       height: 112.5%;
     }
@@ -437,24 +406,56 @@
   &:focus {
     outline: none;
 
-    span::before {
+    .result__button-spinner::before {
       border-color: $c-purple;
     }
   }
 
   &:active,
   &:active:focus {
-    span {
+    .result__button-spinner {
       color: $c-light;
     }
 
-    span::before {
+    .result__button-spinner::before {
       width: 100%;
       height: 100%;
       background-color: $c-purple;
       border-color: $c-purple;
     }
   }
+}
+
+.result__button-spinner {
+  position: relative;
+  margin-left: 1.5rem;
+  width: 4rem;
+  height: 4rem;
+  color: $c-dark;
+  transform: translate3d(30px, 0, 0) rotate(90deg);
+  transition: transform 0.35s ease-in-out;
+
+  @media (min-width: $stop-scaling) {
+    margin-left: 15px;
+    width: 40px;
+    height: 40px;
+  }
+
+  &::before {
+    @include center;
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-color: $c-light;
+    border: 2px solid $c-light;
+    border-radius: 50%;
+    z-index: -1;
+  }
+}
+
+.result__button-text {
+  opacity: 0;
+  transition: opacity 0.35s ease-in-out;
 }
 
 .result__form {
