@@ -4352,6 +4352,7 @@ img {
     text-align: left;
     font-size: 1.4rem;
     line-height: 1.1;
+    transition: width 0.2s, height 0.2s;
   }
   .footer__inner.footer--full {
     width: 100%;
@@ -4359,6 +4360,7 @@ img {
   }
   .footer__inner.footer--full .footer__content, .footer__inner.footer--full .footer__announce {
     opacity: 1;
+    transition: opacity 0.2s 0.2s;
   }
 }
 @media (max-width: 768px) and (orientation: landscape) {
@@ -4371,6 +4373,7 @@ img {
     text-align: left;
     font-size: 1.4rem;
     line-height: 1.1;
+    transition: width 0.2s, height 0.2s;
   }
   .footer__inner.footer--full {
     width: 100%;
@@ -4438,6 +4441,11 @@ img {
   position: relative;
   transform: translateY(0);
 }
+.screen--prizes.screen--active ~ .footer .footer__nested--prizes {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+}
 
 .screen--rules.screen--active ~ .footer .footer__inner--not-intro {
   position: relative;
@@ -4466,6 +4474,11 @@ img {
     text-align: center;
   }
 }
+.screen--rules.screen--active ~ .footer .footer__nested--rules {
+  position: relative;
+  visibility: visible;
+  opacity: 1;
+}
 
 .footer__nested {
   position: absolute;
@@ -4473,18 +4486,6 @@ img {
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
-}
-
-.screen--prizes.screen--active ~ .footer .footer__nested--prizes {
-  position: relative;
-  visibility: visible;
-  opacity: 1;
-}
-
-.screen--rules.screen--active ~ .footer .footer__nested--rules {
-  position: relative;
-  visibility: visible;
-  opacity: 1;
 }
 
 .footer__padding-y-8 {
@@ -4540,7 +4541,6 @@ img {
   cursor: pointer;
   outline: none;
   position: absolute;
-  top: 0;
   z-index: 1;
   display: none;
   width: 3.5rem;
@@ -4567,6 +4567,7 @@ img {
 }
 
 .footer__button--enlarge {
+  bottom: 0;
   left: 0;
 }
 @media (max-width: 1024px) and (orientation: portrait) {
@@ -4583,6 +4584,7 @@ img {
 }
 
 .footer__button--collapse {
+  top: 0;
   right: 0;
 }
 @media (max-width: 1024px) and (orientation: portrait) {
