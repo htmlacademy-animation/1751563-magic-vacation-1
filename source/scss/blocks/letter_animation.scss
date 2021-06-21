@@ -9,7 +9,7 @@
 }
 
 .screen {
-  &.active {
+  &.screen--active {
     .letter {
       transform: translate3d(0, 0, 0);
     }

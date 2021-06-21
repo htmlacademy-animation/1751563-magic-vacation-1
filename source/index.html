@@ -7,7 +7,7 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Mysterious Vacation</title>
 </head>
-<body>
+<body class="js-body">
 
   <header class="page-header js-header">
     <div class="page-header__wrapper">
@@ -77,68 +77,149 @@
 
   <main class="page-content">
 
-    <section class="screen screen--hidden screen--intro js-scrollspy" id="top">
-      <section class="animation-screen"></section>
+    <section class="screen screen--game js-scrollspy js-screen-page" data-page="game" id="game">
       <div class="screen__wrapper">
-        <div class="intro">
-          <h1
-            class="intro__title letter-by-letter-animation js-letter-by-letter-animation"
-            data-animation-duration="0.9"
-            data-animation-delay="0.65"
-          >
-            Таинственный отпуск
-          </h1>
-          <div class="intro__content">
-            <div class="intro__info">
-              <p class="intro__label">Даты проведения конкурса:</p>
-              <p
-                class="intro__date js-letter-by-letter-animation"
-                data-animation-duration="0.7"
-                data-animation-delay="1.65">
-                01 — 31.05 / 2020
-              </p>
-            </div>
-            <div class="intro__message">
-              <p>
-                Отгадай первым место назначения и&nbsp;отправься в&nbsp;путешествие в&nbsp;любое время или получи один из многочисленных призов
-                <svg width="16" height="16" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
-                </svg>
-              </p>
+        <div class="game">
+          <div class="game__header">
+            <h2
+              class="game__title js-letter-by-letter-animation"
+              data-animation-duration="1"
+              data-animation-delay="0.65">
+              Игра
+            </h2>
+            <div class="game__counter">
+              <span>05</span>:<span>00</span>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="screen__footer js-footer">
-        <button class="screen__footer-enlarge js-footer-toggler" type="button" aria-label="Показать сообщение">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
-          </svg>
-        </button>
-        <button class="screen__footer-collapse js-footer-toggler" type="button" aria-label="Скрыть сообщение">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="12.3536" y1="0.353553" x2="0.738349" y2="11.9688" stroke="currentColor"/>
-            <line x1="0.738319" y1="0.539925" x2="12.3535" y2="12.1551" stroke="currentColor"/>
-          </svg>
-        </button>
-        <div class="screen__footer-wrapper">
-          <div class="screen__footer-announce">
-            <p class="screen__footer-label">Даты проведения конкурса:</p>
-            <p class="screen__footer-date">01 — 31.05 / 2020</p>
+          <div class="game__body">
+            <div class="chat">
+              <div class="chat__body js-chat">
+                <ul class="chat__list" id="messages"></ul>
+              </div>
+              <div class="chat__footer">
+                <form action="#" method="post" class="form" id="message-form">
+                  <label for="message-field" class="visually-hidden">Поле для ввода вопроса</label>
+                  <div class="form__input-wrapper">
+                    <input type="text" class="form__input" id="message-field">
+                  </div>
+                  <button class="form__button btn">
+                    Узнать
+                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path stroke="currentColor" stroke-width="2" d="M9 19V1"/>
+                      <path d="M1 9l8-8 8 8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </form>
+              </div>
+            </div>
           </div>
-          <div class="screen__footer-note">
-            <p>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
-              </svg>
-              <span>Победители могут выбрать любые 14 дней подряд в&nbsp;течение двух лет с&nbsp;даты окончания конкурса. Победители могут воспользоваться путевкой сами или подарить другому лицу.</span>
-            </p>
+          <!-- временные кнопки для показа результата -->
+          <div class="game__buttons">
+            <button class="game__button btn js-show-result" type="button" data-target="result">Положительный результат</button>
+            <button class="game__button btn js-show-result" type="button" data-target="result2">Положительный результат - 2</button>
+            <button class="game__button btn js-show-result" type="button" data-target="result3">Отрицательный результат</button>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="screen screen--hidden screen--story js-scrollspy" id="story">
+    <section class="screen screen--rules js-scrollspy js-screen-page" data-page="rules" id="rules">
+      <div class="screen__wrapper">
+        <div class="rules">
+          <h2
+            class="rules__title js-letter-by-letter-animation"
+            data-animation-duration="1"
+            data-animation-delay="0.65">
+            Правила
+          </h2>
+          <div class="rules__lead">
+            <p>Для того чтобы получить наследство Джеймса Таргета, тебе нужно выведать у&nbsp;&laquo;Сони&raquo;, куда предстоит отправиться тебе в&nbsp;случае победы</p>
+          </div>
+          <ol class="rules__list">
+            <li class="rules__item">
+              <span class="rules__mark"></span>
+              <p class="rules__text">Тебе отводится <br>5&nbsp;минут</p>
+            </li>
+            <li class="rules__item">
+              <span class="rules__mark"></span>
+              <p class="rules__text">Задавай любые вопросы в&nbsp;текстовом поле</p>
+            </li>
+            <li class="rules__item">
+              <span class="rules__mark"></span>
+              <p class="rules__text">Нажимай кнопку &laquo;Узнать&raquo;, чтобы получить ответ</p>
+            </li>
+            <li class="rules__item">
+              <span class="rules__mark"></span>
+              <p class="rules__text">&laquo;Соня&raquo; может отвечать только&nbsp;Да или Нет</p>
+            </li>
+          </ol>
+          <a href="#game" class="rules__link btn">
+            <span class="btn__text">Погнали!</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen screen--prizes js-scrollspy js-screen-page" data-page="prizes" id="prizes">
+      <div class="screen__wrapper">
+        <div class="prizes">
+          <h2
+            class="prizes__title js-letter-by-letter-animation"
+            data-animation-duration="1"
+            data-animation-delay="0.65">
+            Призы
+          </h2>
+          <div class="prizes__lead">
+            <p>Найди ответ и&nbsp;получи один из&nbsp;призов:</p>
+          </div>
+          <ul class="prizes__list">
+            <li class="prizes__item prizes__item--journeys">
+              <div class="prizes__icon">
+                <picture>
+                  <source srcset="img/prize1-mob.svg" media="(orientation: portrait)">
+                  <img src="img/prize1.svg" alt="">
+                </picture>
+              </div>
+              <p class="prizes__desc">
+                <b>3</b>
+                <span>загадочных путешествия</span>
+              </p>
+            </li>
+            <li class="prizes__item prizes__item--cases">
+              <div class="prizes__icon">
+                <picture>
+                  <source srcset="img/prize2-mob.svg" media="(orientation: portrait)">
+                  <img src="img/prize2.svg" alt="">
+                </picture>
+              </div>
+              <p class="prizes__desc">
+                <b>7</b>
+                <span>надежных чемоданов</span>
+              </p>
+            </li>
+            <li class="prizes__item prizes__item--codes">
+              <div class="prizes__icon">
+                <picture>
+                  <source srcset="img/prize3-mob.svg" media="(orientation: portrait)">
+                  <img src="img/prize3.svg" alt="">
+                </picture>
+              </div>
+              <p class="prizes__desc">
+                <b>900</b>
+                <span>
+                  промокодов на&nbsp;скидку 15%
+                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
+                  </svg>
+                </span>
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen screen--story js-scrollspy js-screen-page" data-page="story" id="story">
 
       <div class="slider swiper-container js-slider">
 
@@ -199,188 +280,41 @@
       </div>
     </section>
 
-    <section class="screen screen--hidden screen--prizes js-scrollspy" id="prizes">
+    <section class="screen screen--intro js-scrollspy js-screen-page" data-page="hero" id="top">
+      <section class="animation-screen"></section>
       <div class="screen__wrapper">
-        <div class="prizes">
-          <h2
-            class="prizes__title js-letter-by-letter-animation"
-            data-animation-duration="1"
-            data-animation-delay="0.65">
-            Призы
-          </h2>
-          <div class="prizes__lead">
-            <p>Найди ответ и&nbsp;получи один из&nbsp;призов:</p>
-          </div>
-          <ul class="prizes__list">
-            <li class="prizes__item prizes__item--journeys">
-              <div class="prizes__icon">
-                <picture>
-                  <source srcset="img/prize1-mob.svg" media="(orientation: portrait)">
-                  <img src="img/prize1.svg" alt="">
-                </picture>
-              </div>
-              <p class="prizes__desc">
-                <b>3</b>
-                <span>загадочных путешествия</span>
+        <div class="intro">
+          <h1
+            class="intro__title letter-by-letter-animation js-letter-by-letter-animation"
+            data-animation-duration="0.9"
+            data-animation-delay="0.65"
+          >
+            Таинственный отпуск
+          </h1>
+          <div class="intro__content">
+            <div class="intro__info">
+              <p class="intro__label">Даты проведения конкурса:</p>
+              <p
+                class="intro__date js-letter-by-letter-animation"
+                data-animation-duration="0.7"
+                data-animation-delay="1.65">
+                01 — 31.05 / 2020
               </p>
-            </li>
-            <li class="prizes__item prizes__item--cases">
-              <div class="prizes__icon">
-                <picture>
-                  <source srcset="img/prize2-mob.svg" media="(orientation: portrait)">
-                  <img src="img/prize2.svg" alt="">
-                </picture>
-              </div>
-              <p class="prizes__desc">
-                <b>7</b>
-                <span>надежных чемоданов</span>
+            </div>
+            <div class="intro__message">
+              <p>
+                Отгадай первым место назначения и&nbsp;отправься в&nbsp;путешествие в&nbsp;любое время или получи один из многочисленных призов
+                <svg class="footer__snowflake">
+                  <use xlink:href="#snowflake" />
+                </svg>
               </p>
-            </li>
-            <li class="prizes__item prizes__item--codes">
-              <div class="prizes__icon">
-                <picture>
-                  <source srcset="img/prize3-mob.svg" media="(orientation: portrait)">
-                  <img src="img/prize3.svg" alt="">
-                </picture>
-              </div>
-              <p class="prizes__desc">
-                <b>900</b>
-                <span>
-                  промокодов на&nbsp;скидку 15%
-                  <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
-                  </svg>
-                </span>
-              </p>
-            </li>
-          </ul>
-        </div>
-      </div>
-      <div class="screen__footer js-footer">
-        <button class="screen__footer-enlarge js-footer-toggler" type="button" aria-label="Показать сообщение">
-          <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
-          </svg>
-        </button>
-        <button class="screen__footer-collapse js-footer-toggler" type="button" aria-label="Скрыть сообщение">
-          <svg width="13" height="13" viewBox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <line x1="12.3536" y1="0.353553" x2="0.738349" y2="11.9688" stroke="currentColor"/>
-            <line x1="0.738319" y1="0.539925" x2="12.3535" y2="12.1551" stroke="currentColor"/>
-          </svg>
-        </button>
-        <div class="screen__footer-wrapper">
-          <div class="screen__footer-announce">
-            <p class="screen__footer-label">Даты проведения конкурса:</p>
-            <p class="screen__footer-date">01 — 31.05 / 2020</p>
-          </div>
-          <div class="screen__footer-note">
-            <p>
-              <svg width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
-              </svg>
-              <span>Скидка&nbsp;15% на&nbsp;единоразовое приобретение путёвки с&nbsp;1&nbsp;июня 2020 по&nbsp;31&nbsp;мая 2022&nbsp;года. Суммируется с&nbsp;другими акциями</span>
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section class="screen screen--hidden screen--rules js-scrollspy" id="rules">
-      <div class="screen__wrapper">
-        <div class="rules">
-          <h2
-            class="rules__title js-letter-by-letter-animation"
-            data-animation-duration="1"
-            data-animation-delay="0.65">
-            Правила
-          </h2>
-          <div class="rules__lead">
-            <p>Для того чтобы получить наследство Джеймса Таргета, тебе нужно выведать у&nbsp;&laquo;Сони&raquo;, куда предстоит отправиться тебе в&nbsp;случае победы</p>
-          </div>
-          <ol class="rules__list">
-            <li class="rules__item">
-              <span class="rules__mark"></span>
-              <p class="rules__text">Тебе отводится <br>5&nbsp;минут</p>
-            </li>
-            <li class="rules__item">
-              <span class="rules__mark"></span>
-              <p class="rules__text">Задавай любые вопросы в&nbsp;текстовом поле</p>
-            </li>
-            <li class="rules__item">
-              <span class="rules__mark"></span>
-              <p class="rules__text">Нажимай кнопку &laquo;Узнать&raquo;, чтобы получить ответ</p>
-            </li>
-            <li class="rules__item">
-              <span class="rules__mark"></span>
-              <p class="rules__text">&laquo;Соня&raquo; может отвечать только&nbsp;Да или Нет</p>
-            </li>
-          </ol>
-          <a href="#game" class="rules__link btn">
-            <span class="btn__text">Погнали!</span>
-          </a>
-        </div>
-      </div>
-      <div class="screen__disclaimer">
-        <div class="disclaimer">
-          <ul>
-            <li>
-              <a href="#">Правовая информация</a>
-            </li>
-            <li>
-              <a href="#">Подробные правила</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="screen screen--hidden screen--game js-scrollspy" id="game">
-      <div class="screen__wrapper">
-        <div class="game">
-          <div class="game__header">
-            <h2
-              class="game__title js-letter-by-letter-animation"
-              data-animation-duration="1"
-              data-animation-delay="0.65">
-              Игра
-            </h2>
-            <div class="game__counter">
-              <span>05</span>:<span>00</span>
             </div>
           </div>
-          <div class="game__body">
-            <div class="chat">
-              <div class="chat__body js-chat">
-                <ul class="chat__list" id="messages"></ul>
-              </div>
-              <div class="chat__footer">
-                <form action="#" method="post" class="form" id="message-form">
-                  <label for="message-field" class="visually-hidden">Поле для ввода вопроса</label>
-                  <div class="form__input-wrapper">
-                    <input type="text" class="form__input" id="message-field">
-                  </div>
-                  <button class="form__button btn">
-                    Узнать
-                    <svg width="18" height="19" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path stroke="currentColor" stroke-width="2" d="M9 19V1"/>
-                      <path d="M1 9l8-8 8 8" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                    </svg>
-                  </button>
-                </form>
-              </div>
-            </div>
-          </div>
-          <!-- временные кнопки для показа результата -->
-          <div class="game__buttons">
-            <button class="game__button btn js-show-result" type="button" data-target="result">Положительный результат</button>
-            <button class="game__button btn js-show-result" type="button" data-target="result2">Положительный результат - 2</button>
-            <button class="game__button btn js-show-result" type="button" data-target="result3">Отрицательный результат</button>
-          </div>
         </div>
       </div>
     </section>
 
-    <section class="screen screen--hidden screen--result" id="result">
+    <section class="screen screen--result" id="result">
       <div class="screen__wrapper">
         <div class="result result--trip">
           <div class="result__image">
@@ -434,7 +368,7 @@
       </div>
     </section>
 
-    <section class="screen screen--hidden screen--result" id="result2">
+    <section class="screen screen--result" id="result2">
       <div class="screen__wrapper">
         <div class="result result--prize">
           <div class="result__image">
@@ -489,7 +423,7 @@
       </div>
     </section>
 
-    <section class="screen screen--hidden screen--result" id="result3">
+    <section class="screen screen--result" id="result3">
       <div class="screen__wrapper">
         <div class="result result--negative">
           <div class="result__image">
@@ -527,11 +461,10 @@
             </svg>
           </h2>
           <button class="result__button js-play" type="button">
-            не сдавайся!
-            <span>
-              <svg width="27" height="22" viewBox="0 0 27 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M10.6899 1.47998C5.42992 1.47998 1.16992 5.73998 1.16992 11C1.16992 16.26 5.42992 20.52 10.6899 20.52C15.9499 20.52 20.2099 16.26 20.2099 11V7.13998" stroke="currentColor" stroke-width="2" stroke-miterlimit="10"/>
-                <path d="M15.1099 12.5099L20.1499 7.13989L25.3099 12.6299" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linejoin="round"/>
+            <span class="result__button-text">Не сдавайся!</span>
+            <span class="result__button-spinner">
+              <svg width="26" height="26" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+                <path d="M24.48,15.31l-3.37-3.58V13A10.52,10.52,0,1,1,10.59,2.48v2A8.52,8.52,0,1,0,19.11,13V11.6l-3.37,3.59-1.46-1.36,5-5.37a1,1,0,0,1,1.45,0L25.93,14Z"/>
               </svg>
             </span>
           </button>
@@ -539,7 +472,69 @@
       </div>
     </section>
 
-  </main>
+    <div class="footer js-footer">
+      <div class="footer__inner footer__inner--intro footer__padding-y-8">
+        <button class="footer__button footer__button--enlarge js-footer-toggler" type="button" aria-label="Показать сообщение">
+          <svg class="footer__button-snowflake" width="14" height="14">
+            <use xlink:href="#snowflake" />
+          </svg>
+        </button>
+        <button class="footer__button footer__button--collapse js-footer-toggler" type="button" aria-label="Скрыть сообщение">
+          <svg class="footer__close" width="14" height="14">
+            <use xlink:href="#footerClose" />
+          </svg>
+        </button>
+        <div class="footer__announce">
+            <p class="screen__footer-label">Даты проведения конкурса:</p>
+            <p class="screen__footer-date">01 — 31.05 / 2020</p>
+          </div>
+        <div class="footer__content">
+          <svg class="footer__snowflake">
+            <use xlink:href="#snowflake" />
+          </svg>
+          Победители могут выбрать любые 14 дней подряд в&nbsp;течение двух лет с&nbsp;даты окончания конкурса. Победители могут воспользоваться путевкой сами или подарить другому лицу.
+        </div>
+      </div>
+      <div class="footer__inner footer__inner--not-intro">
+        <div class="footer__nested footer__nested--prizes footer__padding-y-8">
+          <button class="footer__button footer__button--enlarge js-footer-toggler" type="button" aria-label="Показать сообщение">
+            <svg class="footer__button-snowflake" width="14" height="14">
+              <use xlink:href="#snowflake" />
+            </svg>
+          </button>
+          <button class="footer__button footer__button--collapse js-footer-toggler" type="button" aria-label="Скрыть сообщение">
+            <svg class="footer__close" width="14" height="14">
+              <use xlink:href="#footerClose" />
+            </svg>
+          </button>
+          <div class="footer__announce">
+              <p class="screen__footer-label">Даты проведения конкурса:</p>
+              <p class="screen__footer-date">01 — 31.05 / 2020</p>
+            </div>
+          <div class="footer__content">
+            <svg class="footer__snowflake">
+              <use xlink:href="#snowflake" />
+            </svg>
+            Скидка&nbsp;15% на&nbsp;единоразовое приобретение путёвки с&nbsp;1&nbsp;июня 2020 по&nbsp;31&nbsp;мая 2022&nbsp;года. Суммируется с&nbsp;другими акциями
+          </div>
+        </div>
+        <div class="footer__nested footer__nested--rules">
+          <a class="footer__link" href="#">Правовая информация</a>
+          /
+          <a class="footer__link" href="#">Подробные правила</a>
+        </div>
+      </div>
+    </div>
 
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="snowflake" viewBox="0 0 10 10">
+        <path d="M0 6.35337L3.90271 4.99012L0 3.64663L1.34615 1.32374L4.44287 4.01073L3.67364 0H6.34615L5.57692 4.01073L8.65385 1.32374L10 3.64663L6.13405 4.99012L10 6.35337L8.65385 8.65651L5.57692 5.98927L6.34615 10H3.67364L4.44287 5.96952L1.34615 8.65651L0 6.35337Z" fill="currentColor"/>
+      </symbol>
+      <symbol id="footerClose" viewBox="0 0 14 14">
+        <path d="M13.51,12.19a1,1,0,0,1,0,1.42,1,1,0,0,1-.7.29,1,1,0,0,1-.71-.29L6.91,8.41l-5,5a1,1,0,0,1-.71.29,1,1,0,0,1-.7-.29A1,1,0,0,1,.49,12l5-5-5-5A1,1,0,0,1,.49.58,1,1,0,0,1,1.9.58l5,5L12.1.39a1,1,0,0,1,1.41,1.42L8.32,7Z" fill="currentColor"/>
+      </symbol>
+    </svg>
+
+  </main>
 </body>
 </html>

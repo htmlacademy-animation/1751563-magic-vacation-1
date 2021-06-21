@@ -74,7 +74,7 @@
   }
 }
 
-.screen--game.active,
+.screen--game.screen--active,
 .screen--result.screen--active {
   .form__input {
     transform: translateX(0);
